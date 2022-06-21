@@ -1,19 +1,31 @@
 # TODO list
 # -0 TODO read args
-# -1 ok? Read Corpus
+# -1 OK Read Corpus
 # -2 TODO natural language processing
 # -3 TODO create index
 # -4 TODO print json with information
 
 
 # DETAILED TODO LIST
+# 1.FUTURE TODO cluster webpages in corpus
 
 # 2.1 OK create file at designated location
 # 2.2 TODO not rely entirely on available memory to produce index
-# 2.3 TODO stemming (portuguese)
-# 2.4 TODO stopword removal (portuguese)
-# 2.5 TODO parallelization policy
+# 2.3 OK tokenize text
+# 2.4 TODO stemming (portuguese)
+# 2.5 TODO stopword removal (portuguese)
+# 2.6 TODO parallelization policy
 # 2.FUTURE compression policy
+# 2.FUTURE other languages
+
+# 3.1 OK save words
+# 3.3 TODO save url 
+# 3.3.1 OK encode url
+# 3.3.2 OK decode url
+# 3.2 OK save positions in which the words are
+# 3.3 TODO save positions from different url
+# 3.FUTURE better way to save url, integer to string takes more space than string
+
 
 # Local import
 import indexer_utils as ut
@@ -46,8 +58,9 @@ def main():
 
 	# create index file
 
-	with open(args.index_file, 'w') as _: pass
-	with open(static.RESULTS + 'word_dict', 'w') as _: pass
+	with open(args.index_file, 'w') as index: pass 
+	aux_id = 0
+	with open(static.RESULTS + 'index_aux_' + str(aux_id), 'w') as index_aux: index_aux.write("{}")
 
 	ut.create_index(args.corpus_path)
 
