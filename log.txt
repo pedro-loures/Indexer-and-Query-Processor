@@ -18,3 +18,22 @@ Limit: 1000, Execution time: 25.016731023788452 seconds, Max Memory Usage: NOT I
 #TEST_MEMORY_USAGE Limit: 1000, Execution time: 11.062332391738892 seconds, Max Memory Usage: 46040, Max Usage Allowed: 524288.0kbytes	
 #TEST_MEMORY_USAGE Limit: 1000, Execution time: 11.094370603561401 seconds, Max Residents Set Size: 46048 kbytes, Max Usage Allowed: 524288.0 kbytes
 --UPDATE - IMPLEMENTED MEMORY_USAGE
+#UNTIL_WORD_FOR_WORD Limit: 1000, Execution time: 11.787883996963501 seconds, Max Residents Set Size: 47640 kbytes, Max Usage Allowed: 524288.0 kbytes
+#UNTIL_WORD_FOR_WORD  Limit: 1000, Execution time: 12.203234434127808 seconds, Max Residents Set Size: 47608 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 24.355735778808594 seconds, Max Residents Set Size: 47648 kbytes, Max Usage Allowed: 524288.0 kbytes
+TEST_NO_STR(_INDEX) Limit: 1000, Execution time: 23.28049397468567 seconds, Max Residents Set Size: 43424 kbytes, Max Usage Allowed: 524288.0 kbytes
+TEST_UPDATE_BRACKETS Limit: 1000, Execution time: 26.23354983329773 seconds, Max Residents Set Size: 43424 kbytes, Max Usage Allowed: 524288.0 kbytes
+TEST_UPDATE_BRACKETS Limit: 1000, Execution time: 24.378742694854736 seconds, Max Residents Set Size: 43392 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 24.812278032302856 seconds, Max Residents Set Size: 43424 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 26.960784435272217 seconds, Max Residents Set Size: 43344 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TESTE_SMALL_RETURN Limit: 1000, Execution time: 12.327821969985962 seconds, Max Residents Set Size: 43376 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TEST_DIFFERENT_TREATMENT: Limit: 1000, Execution time: 12.383484125137329 seconds, Max Residents Set Size: 43376 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TEST_DIFFERENT_TREATMENT Limit: 1000, Execution time: 12.486666202545166 seconds, Max Residents Set Size: 37152 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TEST_DIFFERENT_TREATMENT Limit: 1000, Execution time: 11.805739641189575 seconds, Max Residents Set Size: 37136 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 25.35464906692505 seconds, Max Residents Set Size: 43424 kbytes, Max Usage Allowed: 524288.0 kbytes
+--UPDATE - TREAT ALL WORDS AT THE SAME TIME 
+Limit: 1000, Execution time: 17.247122287750244 seconds, Max Residents Set Size: 37152 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 17.164864540100098 seconds, Max Residents Set Size: 37132 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 1000, Execution time: 18.570786952972412 seconds, Max Residents Set Size: 37136 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: 10000, Execution time: 119.40375471115112 seconds, Max Residents Set Size: 45324 kbytes, Max Usage Allowed: 524288.0 kbytes
+Limit: None, Execution time: 118.9366500377655 seconds, Max Residents Set Size: 45296 kbytes, Max Usage Allowed: 524288.0 kbytes

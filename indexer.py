@@ -64,7 +64,7 @@ def memory_limit(value):
 def main():
 	start_time = time.time()
 
-	limit = 1000
+	limit = None
 	aux_id = 0
 	print("----------- Limit = " + str(limit) +  \
 										", max memory:" + str(resource.getrlimit(rsrc)[0]/1024) + " Kbytes -----------")

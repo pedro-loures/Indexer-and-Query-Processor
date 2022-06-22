@@ -74,31 +74,32 @@ def read_dict(file, encoding='utf-8'):
 
 ######################## create index
 
-
-
 # Rules for the word Treatment
-def _treat_words(word):
-  # return word, True # skip_function
+def _treat_words(words):
+  # return words # skip_function
+  treated_words = []
+  
+  
+  for _word in words:
+    _accepted = True
 
-  accepted = True
+    # convert to lower case
+    _word = _word.lower()
 
-  # convert to lower case
-  word = word.lower()
-
-  # ignore whats not alphanumeric THIS IS BAD. UPDATE THIS LATER
-  if not word.isalnum():
-    accepted = False
-
-  return word, accepted
-
+    # ignore whats not alphanumeric THIS IS BAD. UPDATE THIS LATER
+    if not _word.isalnum():
+      _accepted = False
+    if _accepted: 
+      treated_words.append(_word)
+    return treated_words
 
 
 # Add words to a ordered list withou word repetition
 def _add_alphabetical(complete_dict, new_words, url, treatment=True):
     # return "{}" # skip_function
     # Apply treatment
-    if treatment:
-        new_words = [_treat_words(_word)[0] for _word in new_words if _treat_words(_word)[1]]
+    if treatment and new_words:
+        new_words = _treat_words(new_words)
     else:
         new_words = [str(_word) for _word in new_words]
 
@@ -112,7 +113,6 @@ def _add_alphabetical(complete_dict, new_words, url, treatment=True):
         _index_aux[_word].append(_position)
 
     # Merge dicts
-    # return "{'faW': [['1-432',43,5,4]]}" # dict_string
     _index = complete_dict
     for _word in _index_aux.keys():
       if _word not in _index:
@@ -120,18 +120,22 @@ def _add_alphabetical(complete_dict, new_words, url, treatment=True):
       else:
         _index[_word].append(_index_aux[_word])
 
-    dictionary_string = str(_index)
-
+    dictionary_string = '{}'
+    
     # Convert dict into a alphatically ordered string
-    if len(_index) > 0:
+    # return "{'faW': [['1-432',43,5,4]]}" # dict_string
+    len_index = len(_index)
+    if len_index > 0:
 
       _words = sorted(_index.keys())
       # print("_add_alphabetical - _words:", _words)
+          
       dictionary_string =  [('\'' + _word + '\': ' + str(_index[_word]) + ',\n') for _word in _words] # convert to list
       dictionary_string[0] = '{' + dictionary_string[0]
       dictionary_string[-1] = dictionary_string[-1][:-2] + '}'
     # print("\n\n_add_aphabetical - dictionary_string:", dictionary_string)
 
+    # return "{'faW': [['1-432',43,5,4]]}" # dict_string
     return dictionary_string
 
 
