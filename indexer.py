@@ -4,6 +4,8 @@
 # -2 TODO natural language processing
 # -3 TODO create index
 # -4 TODO print json with information
+# -5 TODO log
+
 
 
 # DETAILED TODO LIST
@@ -19,13 +21,20 @@
 # 2.FUTURE other languages
 
 # 3.1 OK save words
-# 3.3 TODO save url 
-# 3.3.1 OK encode url
-# 3.3.2 OK decode url
-# 3.2 OK save positions in which the words are
-# 3.3 TODO save positions from different url
+# 3.2 TODO save url 
+# 3.2.1 OK encode url
+# 3.2.2 OK decode url
+# 3.3 OK save positions in which the words are
+# 3.4 TODO save positions from different url
+# 3.4.1 OK create an auxiliary dict and merge them
+# 3.4.1 CORRECTED created from 3.4.1
+# 3.4.2 OK Create one file for each url
+# 3.4.3 TODO merge files
+# 3.5 TODO reduce time (min(goal) -> 2min/10000 url current -> 10min/10000)
 # 3.FUTURE better way to save url, integer to string takes more space than string
 
+# 5.1 OK implement LOG
+# 5.2 TODO implement memory usage in log
 
 # Local import
 import indexer_utils as ut
@@ -54,17 +63,30 @@ def memory_limit(value):
 
 def main():
 	start_time = time.time()
-	print("------------ max memory:" + str(resource.getrlimit(rsrc)[0]/1024) + " Kbytes -----------")
+
+	limit = 1000
+	aux_id = 0
+	print("----------- Limit = " + str(limit) +  \
+										", max memory:" + str(resource.getrlimit(rsrc)[0]/1024) + " Kbytes -----------")
 
 	# create index file
 
 	with open(args.index_file, 'w') as index: pass 
-	aux_id = 0
-	with open(static.RESULTS + 'index_aux_' + str(aux_id), 'w') as index_aux: index_aux.write("{}")
 
-	ut.create_index(args.corpus_path)
+	ut.create_index(args.corpus_path, limit = limit)
 
-	print("--- %s minutes ---" % (time.time() - start_time))
+	# Print Execution Time
+	execution_time = (time.time() - start_time)
+	print("--- %s minutes ---" % execution_time)
+
+	# Save log
+	with open('log.txt', 'a') as log_file:
+		log_file.write("Limit: " + str(limit)
+								+ ", Execution time: " + str(execution_time) + " seconds"
+								+ ", Max Residents Set Size: " + str(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) + " kbytes" 
+								+ ", Max Usage Allowed: "  + str(resource.getrlimit(rsrc)[0]/1024) + " kbytes"
+								+ "\n"
+							)
 	pass
 
 
