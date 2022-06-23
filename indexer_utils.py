@@ -4,7 +4,7 @@ import static_defines as static
 
 # External import
 from warcio.archiveiterator import ArchiveIterator
-import nltk
+# import nltk
 # nltk.download('punkt')
 from charset_normalizer import from_bytes
 import os
@@ -145,7 +145,8 @@ def _process_text(raw_stream, url, aux_id=0):
   # return # skip_function
   _text = raw_stream.read().decode('utf-8', 'ignore')
 
-  _text_lines = nltk.word_tokenize(_text)
+  #_text_lines = nltk.word_tokenize(_text)
+  _text_lines = re.split(', |_|-|!|\+', _text)
 
   # Read dict
   index_aux = {}

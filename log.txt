@@ -39,3 +39,7 @@ Limit: 10000, Execution time: 119.40375471115112 seconds, Max Residents Set Size
 Limit: None, Execution time: 118.9366500377655 seconds, Max Residents Set Size: 45296 kbytes, Max Usage Allowed: 524288.0 kbytes
 Limit: None, Execution time: 274.49449253082275 seconds, Max Residents Set Size: 45296 kbytes, Max Usage Allowed: 524288.0 kbytes
 #TEST_TIME | Thu Jun 23 16:35:37 2022, Limit: None, Execution time: 268.526349067688 seconds, Max Residents Set Size: 45256 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 18:48:34 2022, Limit: None, Execution time: 130.32532119750977 seconds, Max Residents Set Size: 45412 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 18:51:52 2022, Limit: None, Execution time: 112.42957162857056 seconds, Max Residents Set Size: 45256 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TEST_RESPLIT_X_TOKENIZE | Thu Jun 23 19:00:34 2022, Limit: None, Execution time: 22.881235599517822 seconds, Max Residents Set Size: 34728 kbytes, Max Usage Allowed: 524288.0 kbytes
+#TEST_RESPLIT_X_TOKENIZE | Thu Jun 23 19:01:08 2022, Limit: None, Execution time: 20.153783798217773 seconds, Max Residents Set Size: 34592 kbytes, Max Usage Allowed: 524288.0 kbytes
