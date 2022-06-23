@@ -220,3 +220,17 @@ def create_index(path_to_corpus, limit = None):
     for file in tmp_files:
       os.remove(static.TMP + file)
     break
+
+
+# merge files
+# for file in files:
+# open(file) as index:
+# 
+# filelines == []
+# while(still_lines)
+#   for file_id, file in enumerate(files):
+#     filelines.append([])
+#     while(comparar as palavras)
+#       line = readline()
+#       fileslines[file_id] = line
+        

@@ -21,7 +21,7 @@
 # 2.FUTURE other languages
 
 # 3.1 OK save words
-# 3.2 TODO save url 
+# 3.2 OK save url 
 # 3.2.1 OK encode url
 # 3.2.2 OK decode url
 # 3.3 OK save positions in which the words are
@@ -30,8 +30,8 @@
 # 3.4.1 CORRECTED created from 3.4.1
 # 3.4.2 OK Create one file for each url
 # 3.4.3 TODO merge files
-# 3.5 TODO reduce time (min(goal) -> 2min/10000 url current -> 10min/10000)
-# 3.FUTURE better way to save url, integer to string takes more space than string
+# 3.5 OK reduce time (min(goal) -> 2min/10000 url current -> 10min/10000)
+# 3.2.FUTURE better way to save url, integer to string takes more space than string (use numbers and letters)
 
 # 5.1 OK implement LOG
 # 5.2 TODO implement memory usage in log
@@ -77,11 +77,13 @@ def main():
 
 	# Print Execution Time
 	execution_time = (time.time() - start_time)
-	print("--- %s minutes ---" % execution_time)
+	print("--- %s seconds ---" % execution_time)
 
 	# Save log
 	with open('log.txt', 'a') as log_file:
-		log_file.write("Limit: " + str(limit)
+		log_file.write(
+									time.ctime(start_time)
+								+ ", Limit: " + str(limit)
 								+ ", Execution time: " + str(execution_time) + " seconds"
 								+ ", Max Residents Set Size: " + str(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss) + " kbytes" 
 								+ ", Max Usage Allowed: "  + str(resource.getrlimit(rsrc)[0]/1024) + " kbytes"
