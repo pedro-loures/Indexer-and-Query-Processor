@@ -72,3 +72,5 @@ Thu Jun 23 22:48:39 2022, Limit: None, Execution time: 26.373526573181152 second
 Thu Jun 23 22:54:30 2022, Limit: None, Execution time: 37.359522342681885 seconds, Max Residents Set Size: 1475308 kbytes, Max Usage Allowed: 524288.0 kbytes
 Thu Jun 23 23:09:51 2022, Limit: None, Execution time: 40.00890588760376 seconds, Max Residents Set Size: 1651068 kbytes, Max Usage Allowed: 524288.0 kbytes
 Thu Jun 23 23:11:17 2022, Limit: None, Execution time: 33.385833501815796 seconds, Max Residents Set Size: 1651008 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 23:24:43 2022, Limit: None, Execution time: 31.74460244178772 seconds, Max Residents Set Size: 1615276 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 23:26:49 2022, Limit: None, Execution time: 261.2955152988434 seconds, Max Residents Set Size: 1523868 kbytes, Max Usage Allowed: 524288.0 kbytes

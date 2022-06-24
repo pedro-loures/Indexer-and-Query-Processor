@@ -5,32 +5,26 @@ import static_defines as static
 # External import
 from warcio.archiveiterator import ArchiveIterator
 from charset_normalizer import from_bytes
+import nltk
+nltk.download('rslp')
+nltk.download('stopwords')
 import os
 import resource
 import argparse
 import time
 import re
 
+#stopword preparation
+stemmer = nltk.stem.RSLPStemmer()
+stopwords_list = nltk.corpus.stopwords.words('portuguese')
+stopwords_list = [stemmer.stem(word) for word in stopwords_list]
+STOPWORDS = {}
+for word in stopwords_list:
+  STOPWORDS[word] = ''
+
 ################################### read index
-
-# convert values that are in string mode to int [[url0, p1, p2, ..., pn ], [url1, p1, p2...],...]
-# def _convert_position_to_int(position_list_str, timed=False):
-#   # return [[0,1,2]] # skip_function
-#   for _ix, _url_positions_i in enumerate(position_list_str):
-#     for _jx, _position_j in enumerate(_url_positions_i): # remove apostrophes
-#       # print("   _convert_position_to_int - _position_j(antes): " + _position_j)
-#       if _position_j[0] == '\'' and _position_j[-1] == '\'':
-#         _position_j = _position_j[1:-1]
-#         position_list_str[_ix][_jx] = _position_j
-
-#       if _jx == 0: # skip url
-#         continue
-
-#       # print("   _convert_position - len(position_i) : ", len(_position_j))
-#       assert _position_j.isnumeric(), "VALUE " + _position_j + " IN " + str(_url_positions_i) + "NOT A INTEGER"
-#       position_list_str[_ix][_jx] = int(position_list_str[_ix][_jx])
-#   return position_list_str
-
+def merge_indexes(file, encoding='utf-8'):
+  
 
 # read index file and convert it to a dictionary
 def read_dict(file, encoding='utf-8'):
@@ -84,15 +78,18 @@ def _treat_words(words, logfile = None):
   # return words # skip_function
   treated_words = []
   
-
+  
   for _position, _word in enumerate(words):
     _accepted = True
-
     if not _word:
       continue
 
-    # convert to lower case
-    _word = _word.lower()
+    # Stemming
+    _word = stemmer.stem(_word.lower())
+    
+    # Stopword
+    if _word in STOPWORDS:
+      continue
 
     # ignore whats not alphanumeric THIS IS BAD. UPDATE THIS LATER
     if not _word.isalnum():
@@ -249,33 +246,6 @@ def _remove_files(filepath):
     os.remove(filepath + file)
   return
 
-
-
-# 3.4.3 merge files
-# def _merge_dict(aux_file):
-#   files = []  
-#   lines = []
-
-#   read_dict(aux_file)
-  
-#   for file in filenames:
-#     lines.append('')
-#     file = filepath + file
-#     files.append(open(file,'r'))
-
-#   while True:
-#     for id, file in enumerate(files):
-#       lines[id] = file.readline()
-
-#     break
-#   print(lines)  
-#   filelines == []
-#   while(still_lines)
-#     for file_id, file in enumerate(files):
-#       filelines.append([])
-#       while(comparar as palavras)
-#         line = readline()
-#         fileslines[file_id] = line
 
 
 # 3- Create Index TODO

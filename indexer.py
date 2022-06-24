@@ -1,8 +1,8 @@
 # TODO list
-# -0 TODO read args
+# -0 OK read args
 # -1 OK Read Corpus
-# -2 TODO natural language processing
-# -3 TODO create index
+# -2 OK natural language processing
+# -3 OK create index
 # -4 TODO print json with information
 # -5 TODO log
 
@@ -14,9 +14,11 @@
 # 2.1 OK create file at designated location
 # 2.2 TODO not rely entirely on available memory to produce index
 # 2.3 OK tokenize text
-# 2.4 TODO stemming (portuguese)
-# 2.5 TODO stopword removal (portuguese)
+# 2.4 OK stemming (portuguese)
+# 2.5 OK stopword removal (portuguese)
 # 2.6 TODO parallelization policy
+
+# 2.4.FUTURE replace list for hash, has to edit nlkt
 # 2.FUTURE compression policy
 # 2.FUTURE other languages
 
@@ -28,13 +30,13 @@
 # 3.4 OK save positions from different url
 # 3.4.1 OK create an auxiliary dict and merge them
 # 3.4.1 CORRECTED created from 3.4.1
-# 3.4.2 OK Create one file for each url
-# 3.4.3 OK merge files
-# 3.5 OK reduce time (min(goal) -> 2min/10000 url current -> 10min/10000)
+# 3.4.2 OK Create one file for all url
+# 3.4.3 TODO merge indexes 
+# 3.5 TODO reduce time (min(goal) -> 2min/10000 url current -> 4min/10000)
 # 3.2.FUTURE better way to save url, integer to string takes more space than string (use numbers and letters)
 
 # 5.1 OK implement LOG
-# 5.2 TODO implement memory usage in log
+# 5.2 OK implement memory usage in log
 
 # Local import
 import indexer_utils as ut
