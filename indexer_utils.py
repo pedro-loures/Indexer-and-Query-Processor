@@ -80,7 +80,7 @@ def write_dict(file, dictionary):
 ######################## create index
 
 # Rules for the word Treatment
-def _treat_words(words):
+def _treat_words(words, logfile = None):
   # return words # skip_function
   treated_words = []
   
@@ -88,17 +88,23 @@ def _treat_words(words):
   for _position, _word in enumerate(words):
     _accepted = True
 
+    if not _word:
+      continue
+
     # convert to lower case
     _word = _word.lower()
 
     # ignore whats not alphanumeric THIS IS BAD. UPDATE THIS LATER
     if not _word.isalnum():
-      _accepted = False
+      if logfile: logfile.write(_word + '\n') 
+      continue
 
     if _accepted: # add position + word
       treated_words.append(str(_position) + '-' + _word)
-    
+
   return treated_words
+
+
 
 def dict_to_string(dictionary, len_dictionary = None, url = None):
   if not len_dictionary:
@@ -114,6 +120,8 @@ def dict_to_string(dictionary, len_dictionary = None, url = None):
     dictionary_string[0] = '{' + dictionary_string[0]
   dictionary_string[-1] = dictionary_string[-1][:-2] + ',\n}'
   return dictionary_string
+
+
 
 # Add words to a ordered list withou word repetition
 def _add_alphabetical(complete_dict, new_words, url, treatment=True):
@@ -142,29 +150,26 @@ def _add_alphabetical(complete_dict, new_words, url, treatment=True):
     dictionary_string = ''
     
     # Convert dict into a alphatically ordered string
-    # return "{'faW': [['1-432',43,5,4]]}" # dict_string
     len_index = len(_index)
     if len_index > 0:
       dictionary_string = dict_to_string(_index, len_index, url)
 
-    # print("\n\n_add_aphabetical - dictionary_string:", dictionary_string)
-    # print("n_add_aphabetical - len(_index) and len(dictionary_strin):", len(_index), len(dictionary_string))
-
-    # return "{'faW': [['1-432',43,5,4]]}" # dict_string
     return dictionary_string
 
 
 
 # Process page Text
-def _process_text(raw_stream, url, index_aux_file, treatment=True):
+def _process_text(raw_stream, url, index_aux_file, treatment=True, logfile=None):
+
+  
   # return # skip_function
   _text = raw_stream.read().decode('utf-8', 'ignore')
 
-  _text_lines = re.split(', | |_|;|\'|\"|-|!|\+', _text) #looks worse BUT FASTER   # OLD -> _text_lines = nltk.word_tokenize(_text)
+  _text_lines = re.split(static.WORD_TREATMENT, _text) #looks worse BUT FASTER   # OLD -> _text_lines = nltk.word_tokenize(_text)
 
   # Apply treatment
   if treatment and _text_lines:
-      new_words = _treat_words(_text_lines)
+      new_words = _treat_words(_text_lines, logfile)
   else:
       new_words = [str(_word) for _word in _text_lines]
   
@@ -202,11 +207,10 @@ def decode_url(encoded_string):
 
 
 # Extract text from Warc Files
-def store_warc_file(corpus_file, limit, aux_file):
- 
+def store_warc_file(corpus_file, limit, aux_file, logfile = None):
   # Create index_aux for this file
   index_aux_file = open(aux_file, 'w', encoding='utf-8')
-
+  print(logfile)
   # Fill_index_aux
   with open(corpus_file, 'rb') as _stream:
     for _counter, record in enumerate(ArchiveIterator( _stream )):
@@ -221,9 +225,9 @@ def store_warc_file(corpus_file, limit, aux_file):
         encoded_url = encode_url(_url)
         assert _url == decode_url(encoded_url), "URL <" + _url +"> DOES NOT MATCH DECODED URL <" + decode_url(encoded_url) + ">"
 
-
         # Write an read dict # TODO 3.4.3
-        _process_text(raw_stream, encoded_url, index_aux_file)
+        
+        _process_text(raw_stream, encoded_url, index_aux_file, logfile=logfile)
         # os.remove(auxfile)
 
       # In case there is a limit, break on the limit of files
@@ -278,9 +282,12 @@ def _remove_files(filepath):
 def create_index(path_to_corpus, limit = None):
   files = os.listdir(path_to_corpus)
   # Pass through files
+
+  # refused_logfile = open(static.LOG + 'refused_words.txt' , 'w') 
+  refused_logfile = None 
   for _counter, file in enumerate(files):
     aux_file = static.TMP + "index_aux_" + str(_counter)
-    url, text = store_warc_file(path_to_corpus + file, limit, aux_file)
+    url, text = store_warc_file(path_to_corpus + file, limit, aux_file, refused_logfile)
     
     dictionary = read_dict(aux_file)
     write_dict(static.TMP + "teste2.txt", dictionary)
