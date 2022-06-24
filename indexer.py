@@ -25,11 +25,11 @@
 # 3.2.1 OK encode url
 # 3.2.2 OK decode url
 # 3.3 OK save positions in which the words are
-# 3.4 TODO save positions from different url
+# 3.4 OK save positions from different url
 # 3.4.1 OK create an auxiliary dict and merge them
 # 3.4.1 CORRECTED created from 3.4.1
 # 3.4.2 OK Create one file for each url
-# 3.4.3 TODO merge files
+# 3.4.3 OK merge files
 # 3.5 OK reduce time (min(goal) -> 2min/10000 url current -> 10min/10000)
 # 3.2.FUTURE better way to save url, integer to string takes more space than string (use numbers and letters)
 

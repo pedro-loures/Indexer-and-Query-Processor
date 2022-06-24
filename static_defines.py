@@ -1,5 +1,5 @@
 MEGABYTE = 1024 * 1024
 
-
-TMP = 'tmp/'
-RESULTS = 'results/'
+LOG = "log/"
+TMP = "tmp/"
+RESULTS = "results/"

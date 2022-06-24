@@ -43,3 +43,26 @@ Thu Jun 23 18:48:34 2022, Limit: None, Execution time: 130.32532119750977 second
 Thu Jun 23 18:51:52 2022, Limit: None, Execution time: 112.42957162857056 seconds, Max Residents Set Size: 45256 kbytes, Max Usage Allowed: 524288.0 kbytes
 #TEST_RESPLIT_X_TOKENIZE | Thu Jun 23 19:00:34 2022, Limit: None, Execution time: 22.881235599517822 seconds, Max Residents Set Size: 34728 kbytes, Max Usage Allowed: 524288.0 kbytes
 #TEST_RESPLIT_X_TOKENIZE | Thu Jun 23 19:01:08 2022, Limit: None, Execution time: 20.153783798217773 seconds, Max Residents Set Size: 34592 kbytes, Max Usage Allowed: 524288.0 kbytes
+--UPDATE - REPLACE NLKT.TOKENIZE WITH RE.SPLIT(', |_|-|!|\+')
+#BUGGED | Thu Jun 23 19:14:52 2022, Limit: None, Execution time: 14.628205060958862 seconds, Max Residents Set Size: 18636 kbytes, Max Usage Allowed: 524288.0 kbytes
+#BUGGED | Thu Jun 23 19:17:43 2022, Limit: None, Execution time: 16.741453647613525 seconds, Max Residents Set Size: 18444 kbytes, Max Usage Allowed: 524288.0 kbytes
+#BUGGED | Thu Jun 23 19:21:46 2022, Limit: None, Execution time: 13.004945278167725 seconds, Max Residents Set Size: 18444 kbytes, Max Usage Allowed: 524288.0 kbytes
+#BUGGED | Thu Jun 23 19:22:20 2022, Limit: None, Execution time: 12.92320704460144 seconds, Max Residents Set Size: 18208 kbytes, Max Usage Allowed: 524288.0 kbytes
+#BUGGED | Thu Jun 23 19:24:00 2022, Limit: None, Execution time: 15.91023588180542 seconds, Max Residents Set Size: 18448 kbytes, Max Usage Allowed: 524288.0 kbytes
+#CLEAN_FILES | Thu Jun 23 19:59:09 2022, Limit: None, Execution time: 2.8876636028289795 seconds, Max Residents Set Size: 13228 kbytes, Max Usage Allowed: 524288.0 kbytes
+#WRITE_ON_ONE_FILE | Thu Jun 23 20:16:11 2022, Limit: None, Execution time: 7.695436477661133 seconds, Max Residents Set Size: 18640 kbytes, Max Usage Allowed: 524288.0 kbytes
+#WRITE_ON_ONE_FILE | Thu Jun 23 20:17:00 2022, Limit: None, Execution time: 7.7831645011901855 seconds, Max Residents Set Size: 18596 kbytes, Max Usage Allowed: 524288.0 kbytes
+#WRITE_ON_ONE_FILE | Thu Jun 23 20:17:53 2022, Limit: None, Execution time: 11.301855325698853 seconds, Max Residents Set Size: 18608 kbytes, Max Usage Allowed: 524288.0 kbytes
+-- UPDATE - BUG IN RE.SPLIT + OPEN FILE ONLY ONCE
+#TEST_READ_DICT | Thu Jun 23 21:15:56 2022, Limit: None, Execution time: 25.27086067199707 seconds, Max Residents Set Size: 595840 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:18:38 2022, Limit: None, Execution time: 24.593223571777344 seconds, Max Residents Set Size: 595836 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:20:25 2022, Limit: None, Execution time: 25.11857795715332 seconds, Max Residents Set Size: 595832 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:23:04 2022, Limit: None, Execution time: 27.515726566314697 seconds, Max Residents Set Size: 595812 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:28:15 2022, Limit: None, Execution time: 25.800499439239502 seconds, Max Residents Set Size: 699784 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:35:51 2022, Limit: None, Execution time: 26.678752660751343 seconds, Max Residents Set Size: 595828 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:46:25 2022, Limit: None, Execution time: 26.161433696746826 seconds, Max Residents Set Size: 595848 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:51:56 2022, Limit: None, Execution time: 26.95555067062378 seconds, Max Residents Set Size: 616624 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 21:54:47 2022, Limit: None, Execution time: 36.55988550186157 seconds, Max Residents Set Size: 2104284 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 22:13:47 2022, Limit: None, Execution time: 23.470613479614258 seconds, Max Residents Set Size: 1460184 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 22:18:10 2022, Limit: None, Execution time: 34.20030212402344 seconds, Max Residents Set Size: 1456540 kbytes, Max Usage Allowed: 524288.0 kbytes
+Thu Jun 23 22:23:40 2022, Limit: None, Execution time: 33.255048990249634 seconds, Max Residents Set Size: 1475288 kbytes, Max Usage Allowed: 524288.0 kbytes
